@@ -7,10 +7,13 @@ Desafio do curso de Cibersegurança 2025 da Santander com parceria DIO, com o in
 
 ## Verificação de ip
 No Metasploitable2 que será utilizado como a máquina alvo iremos verificar o ip com o comando "ip a".
+
 <img width="644" height="239" alt="image" src="https://github.com/user-attachments/assets/3b6471e9-e284-4381-8b16-6ff12a7dab3c" />
+
 Obtivemos o ip “192.168.56.101” da máquina alvo.
 Agora que conseguimos o ip da máquina alvo, será feito o teste de conectividade para verificar se as máquinas estão na mesma rede, com o comando.
 ping -c 3 192.168.56.101
+
 <img width="613" height="196" alt="image" src="https://github.com/user-attachments/assets/1b8b87c6-680a-4cd2-9c37-1d971ce055c2" />
 
 ---
