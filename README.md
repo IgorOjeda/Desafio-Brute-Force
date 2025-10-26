@@ -15,7 +15,7 @@ ip a
 
 Obtivemos o ip “192.168.56.101” da máquina alvo.
 
-Agora que conseguimos o ip da máquina alvo, será feito o teste de conectividade para verificar se as máquinas estão na mesma rede, com o comando.
+Agora que conseguimos o ip da máquina alvo, será feito o teste de conectividade para verificar se as máquinas estão na mesma rede com o comando.
 
 ```bash
 ping -c 3 192.168.56.101
