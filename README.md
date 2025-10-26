@@ -6,11 +6,15 @@ Desafio do curso de Cibersegurança 2025 da Santander com parceria DIO, com o in
 ---
 
 ## Verificação de ip
-No Metasploitable2 que será utilizado como a máquina alvo iremos verificar o ip com o comando "ip a".
+No Metasploitable2 que será utilizado como a máquina alvo iremos verificar o ip com o comando.
+```bash
+ip a
+```
 
 <img width="644" height="239" alt="image" src="https://github.com/user-attachments/assets/3b6471e9-e284-4381-8b16-6ff12a7dab3c" />
 
 Obtivemos o ip “192.168.56.101” da máquina alvo.
+
 Agora que conseguimos o ip da máquina alvo, será feito o teste de conectividade para verificar se as máquinas estão na mesma rede, com o comando.
 
 ```bash
@@ -134,3 +138,5 @@ smbclient -L //192.168.56.102 -U msfadmin
 ```
 
 <img width="752" height="332" alt="image" src="https://github.com/user-attachments/assets/f29c1d0e-d29b-415c-8703-87bcdbfd1936" />
+
+Acesso realizado com sucesso.
