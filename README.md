@@ -140,3 +140,9 @@ smbclient -L //192.168.56.102 -U msfadmin
 <img width="752" height="332" alt="image" src="https://github.com/user-attachments/assets/f29c1d0e-d29b-415c-8703-87bcdbfd1936" />
 
 Acesso realizado com sucesso.
+
+---
+
+# Conclução de aprendizado.
+
+Ao práticar os tipo de ataques fundamentais em reconhecimento, enumeração e ataques de força bruta em um ambiente controlado: obtive o conhecimento de identificar serviços e versões com nmap, extrair informações úteis com enum4linux, construir wordlists e automatizar tentativas de autenticação com ferramentas como Medusa e smbclient, além de registrar e analisar saídas para validar descobertas; ⚠️ lembre-se de aplicar essas técnicas apenas em ambientes autorizados (máquinas virtuais/laboratórios), documentar cada passo e aperfeiçoar suas wordlists e parâmetros de execução para obter resultados mais eficientes e éticos.
